@@ -1,0 +1,11 @@
+Contribution:
+
+Rohan Ingale:
+- Learning the Random Forest algorithm.
+- Porting the sequential program of the Random Forest suitable for distributed environment.
+- Completing the report for the project.
+
+Anand Karandikar:
+- Involved in Harp and other setup configuration
+- Implementing the MapCollective and Mapper tasks with multithreading technique.
+- Gathering results and analysis

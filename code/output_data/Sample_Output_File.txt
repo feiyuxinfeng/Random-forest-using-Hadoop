@@ -1,0 +1,71 @@
+[askarand@j-067 hadoop-2.6.0]$ hadoop jar harp3-app-hadoop-2.6.0.jar edu.iu.randomForest.RFMapCollective /N/u/askarand/dataset/Dataset/train/ /randomForestTrainingData /N/u/askarand/dataset/Dataset/test/test.csv /randomForestTestingData /randomForestOutput_1 2 7 2 true
+16/11/30 03:54:22 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+INFO: Writing training data
+In init. Created the directories.
+Created 2 BufferedWriter objects
+Trying to write Headers
+INFO: Writing testing data.
+Starting Job
+Job CREATED for REDUCE
+Get map collective runner
+16/11/30 03:54:23 INFO client.RMProxy: Connecting to ResourceManager at j-067/172.16.0.67:8132
+16/11/30 03:54:23 INFO input.FileInputFormat: Total input paths to process : 2
+16/11/30 03:54:23 INFO fileformat.MultiFileInputFormat: NUMBER OF FILES: 2
+16/11/30 03:54:23 INFO fileformat.MultiFileInputFormat: NUMBER OF MAPS: 2
+16/11/30 03:54:23 INFO fileformat.MultiFileInputFormat: Split on host: j-067.juliet.futuresystems.org 
+16/11/30 03:54:23 INFO fileformat.MultiFileInputFormat: Split on host: j-067.juliet.futuresystems.org 
+16/11/30 03:54:23 INFO fileformat.MultiFileInputFormat: Total # of splits: 2
+16/11/30 03:54:23 INFO mapreduce.JobSubmitter: number of splits:2
+16/11/30 03:54:23 INFO mapreduce.JobSubmitter: Submitting tokens for job: job_1480467037159_0047
+command: $JAVA_HOME/bin/java -Dlog4j.configuration=container-log4j.properties -Dyarn.app.container.log.dir=<LOG_DIR> -Dyarn.app.container.log.filesize=0 -Dhadoop.root.logger=INFO,CLA  -Xmx1024m org.apache.hadoop.mapreduce.v2.app.MapCollectiveAppMaster 1><LOG_DIR>/stdout 2><LOG_DIR>/stderr 
+16/11/30 03:54:24 INFO impl.YarnClientImpl: Submitted application application_1480467037159_0047
+16/11/30 03:54:24 INFO mapreduce.Job: The url to track the job: http://j-067:8088/proxy/application_1480467037159_0047/
+16/11/30 03:54:24 INFO mapreduce.Job: Running job: job_1480467037159_0047
+16/11/30 03:54:29 INFO mapreduce.Job: Job job_1480467037159_0047 running in uber mode : false
+16/11/30 03:54:29 INFO mapreduce.Job:  map 0% reduce 0%
+16/11/30 03:54:39 INFO mapreduce.Job:  map 100% reduce 0%
+16/11/30 03:56:03 INFO mapreduce.Job: Job job_1480467037159_0047 completed successfully
+16/11/30 03:56:03 INFO mapreduce.Job: Counters: 30
+	File System Counters
+		FILE: Number of bytes read=0
+		FILE: Number of bytes written=211672
+		FILE: Number of read operations=0
+		FILE: Number of large read operations=0
+		FILE: Number of write operations=0
+		HDFS: Number of bytes read=4564562
+		HDFS: Number of bytes written=85
+		HDFS: Number of read operations=18
+		HDFS: Number of large read operations=0
+		HDFS: Number of write operations=4
+	Job Counters 
+		Launched map tasks=2
+		Other local map tasks=2
+		Total time spent by all maps in occupied slots (ms)=185286
+		Total time spent by all reduces in occupied slots (ms)=0
+		Total time spent by all map tasks (ms)=185286
+		Total vcore-seconds taken by all map tasks=185286
+		Total megabyte-seconds taken by all map tasks=189732864
+	Map-Reduce Framework
+		Map input records=2
+		Map output records=1
+		Input split bytes=196
+		Spilled Records=0
+		Failed Shuffles=0
+		Merged Map outputs=0
+		GC time elapsed (ms)=1207
+		CPU time spent (ms)=569010
+		Physical memory (bytes) snapshot=6106980352
+		Virtual memory (bytes) snapshot=21509521408
+		Total committed heap usage (bytes)=16751525888
+	File Input Format Counters 
+		Bytes Read=0
+	File Output Format Counters 
+		Bytes Written=85
+Total Harp RandomForest Execution Time: 100572
+
+[askarand@j-067 ~]$ hdfs dfs -cat /randomForestOutput_1/rf_out/part-m-00000
+16/11/30 03:56:51 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+	 Predicted 
+ Actual (Yes) | TP: 4712 | FN 105| 
+       (No)  | FP: 24 | TN 10154|
+Accuracy: 99.139713%
